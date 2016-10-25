@@ -137,7 +137,7 @@
           $.each(restaurants, function(key, val) {
             html += "<div class='col-md-4'><figure>";
             html += "<img class='img-fluid' src='./assets/images/" + val.photograph + "' alt='" + val.name + "' width='400'>";
-            html += "<figcaption>" + val.name + "</figcaption>";
+            html += "<figcaption><a href='./show.html?r=" + val.name.replace(/'/g, "%27") + "'>" + val.name + "</a></figcaption>";
             html += "</figure></div>";
           });
           $('#restaurants').append(html);
