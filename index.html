@@ -4,8 +4,145 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant Reviewer</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="./dist/css/main.css" type="text/css">
   </head>
   <body>
-    <h1>Hello World!</h1>
+
+    <header>
+      <nav class="navbar navbar-default navbar-fixed-top">
+  	      <span>
+            <i class="fa fa-cutlery" aria-hidden="true"></i> Restaurant Reviewer
+          </span>
+      </nav>
+    </header>
+
+    <div class="container" id="restaurants">
+    </div>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <script>
+      var restaurants = [
+        {
+          "name": "Mission Chinese Food",
+          "photograph": "mission_chinese.jpg",
+          "address": "address",
+          "cuisine_type": "cuisine_type",
+          "operating_hours": {
+            "Monday": "Monday",
+            "Tuesday": "Tuesday",
+            "Wednesday": "Wednesday",
+            "Thursday": "Thursday",
+            "Friday": "Friday",
+            "Saturday": "Saturday",
+            "Sunday": "Sunday"
+          }
+        },
+        {
+          "name": "Emily",
+          "photograph": "emily_pizza.jpg",
+          "address": "address",
+          "cuisine_type": "cuisine_type",
+          "operating_hours": {
+            "Monday": "Monday",
+            "Tuesday": "Tuesday",
+            "Wednesday": "Wednesday",
+            "Thursday": "Thursday",
+            "Friday": "Friday",
+            "Saturday": "Saturday",
+            "Sunday": "Sunday"
+          }
+        },
+        {
+          "name": "Kang Ho Dong Baekjeong",
+          "photograph": "kang_ho_dong.jpg",
+          "address": "address",
+          "cuisine_type": "cuisine_type",
+          "operating_hours": {
+            "Monday": "Monday",
+            "Tuesday": "Tuesday",
+            "Wednesday": "Wednesday",
+            "Thursday": "Thursday",
+            "Friday": "Friday",
+            "Saturday": "Saturday",
+            "Sunday": "Sunday"
+          }
+        },
+        {
+          "name": "Katz's Delicatessen",
+          "photograph": "katz_deli.jpg",
+          "address": "address",
+          "cuisine_type": "cuisine_type",
+          "operating_hours": {
+            "Monday": "Monday",
+            "Tuesday": "Tuesday",
+            "Wednesday": "Wednesday",
+            "Thursday": "Thursday",
+            "Friday": "Friday",
+            "Saturday": "Saturday",
+            "Sunday": "Sunday"
+          }
+        },
+        {
+          "name": "Patsy's Pizza",
+          "photograph": "pizza.jpg",
+          "address": "address",
+          "cuisine_type": "cuisine_type",
+          "operating_hours": {
+            "Monday": "Monday",
+            "Tuesday": "Tuesday",
+            "Wednesday": "Wednesday",
+            "Thursday": "Thursday",
+            "Friday": "Friday",
+            "Saturday": "Saturday",
+            "Sunday": "Sunday"
+          }
+        },
+        {
+          "name": "Superiority Burger",
+          "photograph": "superiority_burger.jpg",
+          "address": "address",
+          "cuisine_type": "cuisine_type",
+          "operating_hours": {
+            "Monday": "Monday",
+            "Tuesday": "Tuesday",
+            "Wednesday": "Wednesday",
+            "Thursday": "Thursday",
+            "Friday": "Friday",
+            "Saturday": "Saturday",
+            "Sunday": "Sunday"
+          }
+        },
+        {
+          "name": "The Dutch",
+          "photograph": "the_dutch.jpg",
+          "address": "address",
+          "cuisine_type": "cuisine_type",
+          "operating_hours": {
+            "Monday": "Monday",
+            "Tuesday": "Tuesday",
+            "Wednesday": "Wednesday",
+            "Thursday": "Thursday",
+            "Friday": "Friday",
+            "Saturday": "Saturday",
+            "Sunday": "Sunday"
+          }
+        }
+      ];
+
+      $(document).ready(function() {
+          var html = "";
+          $.each(restaurants, function(key, val) {
+            html += "<div class='col-md-4'><figure>";
+            html += "<img class='img-fluid' src='./assets/images/" + val.photograph + "' alt='" + val.name + "' width='400'>";
+            html += "<figcaption>" + val.name + "</figcaption>";
+            html += "</figure></div>";
+          });
+          $('#restaurants').append(html);
+        });
+    </script>
+
   </body>
 </html>

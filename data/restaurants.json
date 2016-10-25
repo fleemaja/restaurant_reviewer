@@ -1,0 +1,107 @@
+[
+  {
+    "name": "name",
+    "photograph": "mission_chinese.jpg",
+    "address": "address",
+    "cuisine_type": "cuisine_type",
+    "operating_hours": {
+      "Monday": "Monday",
+      "Tuesday": "Tuesday",
+      "Wednesday": "Wednesday",
+      "Thursday": "Thursday",
+      "Friday": "Friday",
+      "Saturday": "Saturday",
+      "Sunday": "Sunday"
+    }
+  },
+  {
+    "name": "name",
+    "photograph": "emily_pizza.jpg",
+    "address": "address",
+    "cuisine_type": "cuisine_type",
+    "operating_hours": {
+      "Monday": "Monday",
+      "Tuesday": "Tuesday",
+      "Wednesday": "Wednesday",
+      "Thursday": "Thursday",
+      "Friday": "Friday",
+      "Saturday": "Saturday",
+      "Sunday": "Sunday"
+    }
+  },
+  {
+    "name": "name",
+    "photograph": "kang_ho_dong.jpg",
+    "address": "address",
+    "cuisine_type": "cuisine_type",
+    "operating_hours": {
+      "Monday": "Monday",
+      "Tuesday": "Tuesday",
+      "Wednesday": "Wednesday",
+      "Thursday": "Thursday",
+      "Friday": "Friday",
+      "Saturday": "Saturday",
+      "Sunday": "Sunday"
+    }
+  },
+  {
+    "name": "name",
+    "photograph": "katz_deli.jpg",
+    "address": "address",
+    "cuisine_type": "cuisine_type",
+    "operating_hours": {
+      "Monday": "Monday",
+      "Tuesday": "Tuesday",
+      "Wednesday": "Wednesday",
+      "Thursday": "Thursday",
+      "Friday": "Friday",
+      "Saturday": "Saturday",
+      "Sunday": "Sunday"
+    }
+  },
+  {
+    "name": "name",
+    "photograph": "pizza.jpg",
+    "address": "address",
+    "cuisine_type": "cuisine_type",
+    "operating_hours": {
+      "Monday": "Monday",
+      "Tuesday": "Tuesday",
+      "Wednesday": "Wednesday",
+      "Thursday": "Thursday",
+      "Friday": "Friday",
+      "Saturday": "Saturday",
+      "Sunday": "Sunday"
+    }
+  },
+  {
+    "name": "name",
+    "photograph": "superiority_burger.jpg",
+    "address": "address",
+    "cuisine_type": "cuisine_type",
+    "operating_hours": {
+      "Monday": "Monday",
+      "Tuesday": "Tuesday",
+      "Wednesday": "Wednesday",
+      "Thursday": "Thursday",
+      "Friday": "Friday",
+      "Saturday": "Saturday",
+      "Sunday": "Sunday"
+    }
+  },
+  {
+    "name": "name",
+    "photograph": "the_dutch.jpg",
+    "address": "address",
+    "cuisine_type": "cuisine_type",
+    "operating_hours": {
+      "Monday": "Monday",
+      "Tuesday": "Tuesday",
+      "Wednesday": "Wednesday",
+      "Thursday": "Thursday",
+      "Friday": "Friday",
+      "Saturday": "Saturday",
+      "Sunday": "Sunday"
+    }
+  }
+]

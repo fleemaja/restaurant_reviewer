@@ -1,0 +1,32 @@
+body {
+  text-align: center;
+  color: #333;
+}
+
+.navbar-fixed-top {
+  font-family: 'Futura', 'Helvetica', sans-serif;
+  font-size: 32px;
+  font-weight: 900;
+  padding: 10px;
+  background: #FF9;
+  border: none;
+}
+
+.container {
+  margin-top: 100px;
+}
+
+figure {
+  margin-bottom: 40px;
+}
+
+figcaption {
+  font-size: 18px;
+  font-weight: 900;
+  margin-top: 10px;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
