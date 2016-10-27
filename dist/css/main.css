@@ -17,8 +17,22 @@ body {
   color: inherit;
 }
 
+
+.review-date {
+  margin-left: 20px;
+  color: #777;
+}
+
 .container {
   margin-top: 100px;
+}
+
+.reviews {
+  text-align: left;
+}
+
+.review {
+  margin-bottom: 40px;
 }
 
 figure {
@@ -29,6 +43,7 @@ figcaption {
   font-size: 18px;
   font-weight: 900;
   margin-top: 10px;
+  text-align: left;
 }
 
 .img-fluid {
