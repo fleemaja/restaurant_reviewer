@@ -23,8 +23,16 @@ body {
   color: #777;
 }
 
-.container {
+.filters {
+  text-align: center;
   margin-top: 100px;
+  margin-bottom: 40px;
+}
+
+.select {
+  display: inline-block;
+  width: 150px;
+  margin: 0 auto;
 }
 
 .reviews {

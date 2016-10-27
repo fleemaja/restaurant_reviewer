@@ -18,6 +18,27 @@
       </nav>
     </header>
 
+    <div class="filters">
+			<div class="select">
+          <select class="form-control" id="select-cuisine-type">
+            <option selected value="all">All Cuisine Types</option>
+            <option value="Asian">Asian</option>
+            <option value="American">American</option>
+            <option value="Mexican">Mexican</option>
+            <option value="Pizza">Pizza</option>
+          </select>
+	    </div>
+
+      <div class="select">
+          <select class="form-control" id="select-borough">
+            <option selected value="all">All Neighborhoods</option>
+            <option value="Manhattan">Manhattan</option>
+            <option value="Brooklyn">Brooklyn</option>
+            <option value="Queens">Queens</option>
+          </select>
+	    </div>
+    </div>
+
     <div class="container" id="restaurants">
     </div>
 
@@ -427,24 +448,42 @@
       }
 
       $(document).ready(function() {
-          var html = "";
-          $.each(restaurants, function(key, val) {
-            var total = 0;
-            var numReviews = reviews[val.name].length;
-            $.each(reviews[val.name], function(rev_key, rev_val) {
-              total += rev_val.rating;
-            });
-            var avgRating = Math.round(total/numReviews);
-            html += "<div class='col-md-4'><figure>";
-            html += "<img class='img-fluid' src='./assets/images/" + val.photograph + "' alt='" + val.name + "' width='400'>";
-            html += "<figcaption><a href='./show.html?r=" + val.name.replace(/'/g, "%27") + "'>" + val.name + "</a>";
-            html += "<p>" + "<i class='fa fa-star' aria-hidden='true'></i>".repeat(avgRating) + "<i class='fa fa-star-o' aria-hidden='true'></i>".repeat(5 - avgRating) + "</p>";
-            html += "<p><i class='fa fa-map-marker' aria-hidden='true'></i> " + val.address + "</p>";
-            html += "<p><i class='fa fa-cutlery' aria-hidden='true'></i> " + val.cuisine_type + "</p>";
-            html += "</figcaption></figure></div>";
-          });
-          $('#restaurants').append(html);
+          fetchRestaurants();
+      });
+
+      $('#select-cuisine-type').on('change', function() {
+      	fetchRestaurants();
+      });
+
+      $('#select-borough').on('change', function() {
+        fetchRestaurants();
+      });
+
+      function fetchRestaurants() {
+        var cuisineType = $('#select-cuisine-type').val();
+        var borough = $('#select-borough').val();
+        var html = "";
+        $.each(restaurants, function(key, val) {
+          if (cuisineType === "all" || val.cuisine_type === cuisineType) {
+            if (borough === "all" || val.borough === borough) {
+              var total = 0;
+              var numReviews = reviews[val.name].length;
+              $.each(reviews[val.name], function(rev_key, rev_val) {
+                total += rev_val.rating;
+              });
+              var avgRating = Math.round(total/numReviews);
+              html += "<div class='col-md-4'><figure>";
+              html += "<img class='img-fluid' src='./assets/images/" + val.photograph + "' alt='" + val.name + "' width='400'>";
+              html += "<figcaption><a href='./show.html?r=" + val.name.replace(/'/g, "%27") + "'>" + val.name + "</a>";
+              html += "<p>" + "<i class='fa fa-star' aria-hidden='true'></i>".repeat(avgRating) + "<i class='fa fa-star-o' aria-hidden='true'></i>".repeat(5 - avgRating) + "</p>";
+              html += "<p><i class='fa fa-map-marker' aria-hidden='true'></i> " + val.address + "</p>";
+              html += "<p><i class='fa fa-cutlery' aria-hidden='true'></i> " + val.cuisine_type + "</p>";
+              html += "</figcaption></figure></div>";
+            }
+          }
         });
+        $('#restaurants').html(html);
+      }
     </script>
 
   </body>
