@@ -1,6 +1,7 @@
 body {
   text-align: center;
   color: #333;
+  margin-top: 100px;
 }
 
 .navbar-fixed-top {
@@ -17,7 +18,6 @@ body {
   color: inherit;
 }
 
-
 .review-date {
   margin-left: 20px;
   color: #777;
@@ -25,7 +25,6 @@ body {
 
 .filters {
   text-align: center;
-  margin-top: 100px;
   margin-bottom: 40px;
 }
 
@@ -57,4 +56,13 @@ figcaption {
 .img-fluid {
   max-width: 100%;
   height: auto;
+}
+
+#stars {
+  font-size: 48px;
+}
+
+form {
+  margin-bottom: 40px;
+  text-align: left;
 }

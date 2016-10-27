@@ -18,11 +18,34 @@
     </header>
 
     <div class="container">
+      <div class='col-md-4 info'>
+      </div>
+
+      <div class="col-md-6 col-md-offset-1">
+        <form>
+            <div class="form-group">
+                <input type="text" id="name-input" class="form-control" name="name" aria-label="Your Name" autocomplete="name" placeholder="Your Name" autofocus required>
+            </div>
+            <div id="stars" class="starrr"></div>
+            <div class="form-group">
+                <textarea rows="4" class="form-control" id="review-input" placeholder="Your Review" aria-label="Your Review" name="review"></textarea>
+            </div>
+            <button type="submit" id="review-submit" class="btn btn-warning btn-lg">Add Review</button>
+        </form>
+
+        <div class="reviews">
+        </div>
+      </div>
     </div>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript" src="./dist/js/starrr.js"></script>
 
     <script type="text/javascript">
+      $('form').submit(function(e) {
+        e.preventDefault();
+      });
+      
       var restaurants = [
         {
           "name": "Mission Chinese Food",
@@ -431,36 +454,37 @@
           var urlSplit = url.split("?r=");
           var restaurantName = urlSplit[1];
           restaurantName = restaurantName.replace(/%27/g, "'").replace(/%20/g, " ");
-          var html = "";
           var foundPage = false;
           $.each(restaurants, function(key, val) {
             if (val.name === restaurantName) {
               foundPage = true;
-              html += "<div class='col-md-4'><figure>";
-              html += "<img class='img-fluid' src='./assets/images/" + val.photograph + "' alt='" + val.name + "' width='400'>";
-              html += "<figcaption><p>" + val.name + "</p><p><i class='fa fa-map-marker' aria-hidden='true'></i> " + val.address + "</p>";
-              html += "<p><i class='fa fa-cutlery' aria-hidden='true'></i> " + val.cuisine_type + "</p>";
-              html += "<p><i class='fa fa-clock-o' aria-hidden='true'></i> Hours</p><table>";
+              var infoHtml = "";
+              infoHtml += "<figure>";
+              infoHtml += "<img class='img-fluid' src='./assets/images/" + val.photograph + "' alt='" + val.name + "' width='400'>";
+              infoHtml += "<figcaption><p>" + val.name + "</p><p><i class='fa fa-map-marker' aria-hidden='true'></i> " + val.address + "</p>";
+              infoHtml += "<p><i class='fa fa-cutlery' aria-hidden='true'></i> " + val.cuisine_type + "</p>";
+              infoHtml += "<p><i class='fa fa-clock-o' aria-hidden='true'></i> Hours</p><table>";
               $.each(Object.keys(val.operating_hours), function(hours_key, hours_val) {
-                html += "<tr><td>" + hours_val + "</td><td>" + val.operating_hours[hours_val] + "</td></tr>";
+                infoHtml += "<tr><td>" + hours_val + "</td><td>" + val.operating_hours[hours_val] + "</td></tr>";
               });
-              html += "</table></figcaption></figure></div>";
-              html += "<div class='col-md-6 col-md-offset-1 reviews'>";
+              infoHtml += "</table></figcaption></figure>";
+              $('.info').html(infoHtml);
+              var revHtml = "";
               $.each(reviews[restaurantName], function(rev_key, rev_val) {
-                html += "<div class='review'><p><strong>" + rev_val.name + "</strong>";
-                html += "<span class='review-date'>" + rev_val.date + "</span></p>";
-                html += "<p>" + "<i class='fa fa-star' aria-hidden='true'></i>".repeat(rev_val.rating) + "<i class='fa fa-star-o' aria-hidden='true'></i>".repeat(5 - rev_val.rating) + "</p>";
-                html += "<p>" + rev_val.comments + "</p><hr></div>";
+                revHtml += "<hr><div class='review'><p><strong>" + rev_val.name + "</strong>";
+                revHtml += "<span class='review-date'>" + rev_val.date + "</span></p>";
+                revHtml += "<p>" + "<i class='fa fa-star' aria-hidden='true'></i>".repeat(rev_val.rating) + "<i class='fa fa-star-o' aria-hidden='true'></i>".repeat(5 - rev_val.rating) + "</p>";
+                revHtml += "<p>" + rev_val.comments + "</p></div>";
               });
-              html += "</div>";
+              $('.reviews').html(revHtml);
               document.title = restaurantName;
             }
           });
           if (!foundPage) {
-            html += "404";
+            html = "404";
             document.title = "404";
+            $('.container').append(html);
           }
-          $('.container').append(html);
       });
     </script>
 
