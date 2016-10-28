@@ -24,11 +24,14 @@
       <div class="col-md-6 col-md-offset-1">
         <form>
             <div class="form-group">
-                <input type="text" id="name-input" class="form-control" name="name" aria-label="Your Name" autocomplete="name" placeholder="Your Name" autofocus required>
+                <input type="text" id="name-input" class="form-control" name="name" aria-label="Your Name" autocomplete="name" placeholder="Your Name" autofocus>
+                <div class="tooltip" id="name-tooltip"><span class="fa fa-exclamation"></span>Name is required</div>
             </div>
             <div id="stars" class="starrr"></div>
+            <div class="tooltip" id="star-tooltip"><span class="fa fa-exclamation"></span>Star Rating is required</div>
             <div class="form-group">
                 <textarea rows="4" class="form-control" id="review-input" placeholder="Your Review" aria-label="Your Review" name="review"></textarea>
+                <div class="tooltip" id="review-tooltip"><span class="fa fa-exclamation"></span>Review is required</div>
             </div>
             <button type="submit" id="review-submit" class="btn btn-warning btn-lg">Add Review</button>
         </form>
@@ -42,10 +45,67 @@
     <script type="text/javascript" src="./dist/js/starrr.js"></script>
 
     <script type="text/javascript">
+
+      var nameTooltip = $('#name-tooltip');
+      var starTooltip = $('#star-tooltip');
+      var reviewTooltip = $('#review-tooltip');
+
       $('form').submit(function(e) {
         e.preventDefault();
+
+        if (!isStarValid()) {
+          starTooltip.css('opacity', 1);
+        }
+
+        if (!isNameValid()) {
+          nameTooltip.css('opacity', 1);
+        }
+
+        if (!isReviewValid()) {
+          reviewTooltip.css('opacity', 1);
+        }
       });
-      
+
+      function isStarValid() {
+        var star = $('#stars').val();
+        return star === "" ? false : true;
+      }
+
+      $('#stars').on('starrr:change', function(e, value){
+        $('#stars').val(value);
+        starTooltip.css('opacity', 0);
+      });
+
+      $('#name-input').focusout(function() {
+        if (!isNameValid()) {
+          nameTooltip.css('opacity', 1);
+        }
+      });
+
+      $('#name-input').focusin(function() {
+        nameTooltip.css('opacity', 0);
+      });
+
+      function isNameValid() {
+        var name = $('#name-input').val();
+        return name === "" ? false : true;
+      }
+
+      $('#review-input').focusout(function() {
+        if (!isReviewValid()) {
+          reviewTooltip.css('opacity', 1);
+        }
+      });
+
+      $('#review-input').focusin(function() {
+        reviewTooltip.css('opacity', 0);
+      });
+
+      function isReviewValid() {
+        var review = $('#review-input').val();
+        return review === "" ? false : true;
+      }
+
       var restaurants = [
         {
           "name": "Mission Chinese Food",
