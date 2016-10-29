@@ -50,7 +50,7 @@
           "name": "Mission Chinese Food",
           "borough": "Manhattan",
           "photograph": "mission_chinese.jpg",
-          "address": "171 E Broadway;New York, NY 10002",
+          "address": "171 E Broadway$New York, NY 10002",
           "cuisine_type": "Asian",
           "operating_hours": {
             "Monday": "5:30 pm - 11:00 pm",
@@ -66,7 +66,7 @@
           "name": "Emily",
           "borough": "Brooklyn",
           "photograph": "emily_pizza.jpg",
-          "address": "919 Fulton St;Brooklyn, NY 11238",
+          "address": "919 Fulton St$Brooklyn, NY 11238",
           "cuisine_type": "Pizza",
           "operating_hours": {
             "Monday": "5:30 pm - 11:00 pm",
@@ -82,7 +82,7 @@
           "name": "Kang Ho Dong Baekjeong",
           "borough": "Manhattan",
           "photograph": "kang_ho_dong.jpg",
-          "address": "1 E 32nd St;New York, NY 10016",
+          "address": "1 E 32nd St$New York, NY 10016",
           "cuisine_type": "Asian",
           "operating_hours": {
             "Monday": "11:30 am - 2:00 am",
@@ -98,7 +98,7 @@
           "name": "Katz's Delicatessen",
           "borough": "Manhattan",
           "photograph": "katz_deli.jpg",
-          "address": "205 E Houston St;New York, NY 10002",
+          "address": "205 E Houston St$New York, NY 10002",
           "cuisine_type": "American",
           "operating_hours": {
             "Monday": "8:00 am - 10:30 pm",
@@ -114,7 +114,7 @@
           "name": "Roberta's Pizza",
           "borough": "Brooklyn",
           "photograph": "robertas_pizza.jpg",
-          "address": "261 Moore St;Brooklyn, NY 11206",
+          "address": "261 Moore St$Brooklyn, NY 11206",
           "cuisine_type": "Pizza",
           "operating_hours": {
             "Monday": "11:00 am - 12:00 am",
@@ -130,7 +130,7 @@
           "name": "Hometown BBQ",
           "borough": "Brooklyn",
           "photograph": "hometown_bbq.jpg",
-          "address": "454 Van Brunt St;Brooklyn, NY 11231",
+          "address": "454 Van Brunt St$Brooklyn, NY 11231",
           "cuisine_type": "American",
           "operating_hours": {
             "Monday": "Closed",
@@ -146,7 +146,7 @@
           "name": "Superiority Burger",
           "borough": "Manhattan",
           "photograph": "superiority_burger.jpg",
-          "address": "430 E 9th St;New York, NY 10009",
+          "address": "430 E 9th St$New York, NY 10009",
           "cuisine_type": "American",
           "operating_hours": {
             "Monday": "11:30 am - 10:00 pm",
@@ -162,7 +162,7 @@
           "name": "The Dutch",
           "borough": "Manhattan",
           "photograph": "the_dutch.jpg",
-          "address": "131 Sullivan St;New York, NY 10012",
+          "address": "131 Sullivan St$New York, NY 10012",
           "cuisine_type": "American",
           "operating_hours": {
             "Monday": "11:30 am - 3:00 pm, 5:30 pm - 11:00 pm",
@@ -178,7 +178,7 @@
           "name": "Ganesh Temple Canteen",
           "borough": "Queens",
           "photograph": "ganesh.jpg",
-          "address": "45-57 Bowne St;Flushing, NY 11355",
+          "address": "45-57 Bowne St$Flushing, NY 11355",
           "cuisine_type": "Asian",
           "operating_hours": {
             "Monday": "8:30 am - 9:30 pm",
@@ -194,7 +194,7 @@
           "name": "Mu Ramen",
           "borough": "Queens",
           "photograph": "mu_ramen.jpg",
-          "address": "1209 Jackson Ave;Queens, NY 11101",
+          "address": "1209 Jackson Ave$Queens, NY 11101",
           "cuisine_type": "Asian",
           "operating_hours": {
             "Monday": "5:00 pm - 10:00 pm",
@@ -210,7 +210,7 @@
           "name": "Casa Enrique",
           "borough": "Queens",
           "photograph": "casa_enrique.jpg",
-          "address": "5-48 49th Ave;Queens, NY 11101",
+          "address": "5-48 49th Ave$Queens, NY 11101",
           "cuisine_type": "Mexican",
           "operating_hours": {
             "Monday": "5:00 pm - 12:00 am",
@@ -476,8 +476,8 @@
               html += "<img class='img-fluid' src='./assets/images/" + val.photograph + "' alt='" + val.name + "' >";
               html += "<figcaption><a href='./show.html?r=" + val.name.replace(/'/g, "%27") + "'>" + val.name + "</a>";
               html += "<p>" + "<i class='fa fa-star' aria-hidden='true'></i>".repeat(avgRating) + "<i class='fa fa-star-o' aria-hidden='true'></i>".repeat(5 - avgRating) + "</p>";
-              html += "<p><i class='fa fa-map-marker' aria-hidden='true'></i> " + val.address.split(";")[0] + "</p>";
-              html += "<p><i class='fa fa-map-marker' aria-hidden='true'></i> " + val.address.split(";")[1] + "</p>";
+              html += "<p><i class='fa fa-map-marker' aria-hidden='true'></i> " + val.address.split("$")[0] + "</p>";
+              html += "<p><i class='fa fa-map-marker' aria-hidden='true'></i> " + val.address.split("$")[1] + "</p>";
               html += "<p><i class='fa fa-cutlery' aria-hidden='true'></i> " + val.cuisine_type + "</p>";
               html += "</figcaption></figure></div>";
             }
