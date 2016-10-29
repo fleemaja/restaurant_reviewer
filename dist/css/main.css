@@ -13,6 +13,28 @@ body {
   border: none;
 }
 
+.btn {
+  background: #5bc0de;
+  color: white;
+}
+
+td {
+  vertical-align: top;
+  padding: 5px 0px;
+  font-size: 16px;
+}
+
+tr td:first-of-type {
+  padding-right: 20px;
+}
+
+.btn:focus,
+.btn:active,
+.btn:hover {
+  background: #46b8da;
+  color: white;
+}
+
 .navbar a {
   text-decoration: none;
   color: inherit;
@@ -30,8 +52,8 @@ body {
 
 .select {
   display: inline-block;
-  width: 150px;
-  margin: 0 auto;
+  width: 148px;
+  margin: 0px 5px;
 }
 
 .reviews {
@@ -48,7 +70,6 @@ figure {
 
 figcaption {
   font-size: 18px;
-  font-weight: 900;
   margin-top: 10px;
   text-align: left;
 }
@@ -110,7 +131,13 @@ div.tooltip:before {
 
 .fa-exclamation {
   color: white;
-  background: #f0ad4e;
+  background: #5bc0de;
   padding: 2px 7px;
   margin-right: 5px;
+}
+
+@media (max-width: 350px) {
+  .navbar-fixed-top {
+    font-size: 24px;
+  }
 }
