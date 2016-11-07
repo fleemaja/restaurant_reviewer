@@ -138,6 +138,12 @@ body {
   }
 }
 
+#map {
+  height: 350px;
+  width: 100%;
+  margin-bottom: 40px;
+ }
+
 @media (max-width: 350px) {
   .navbar-fixed-top {
     font-size: 24px;

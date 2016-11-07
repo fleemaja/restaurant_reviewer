@@ -4,6 +4,18 @@ var nameTooltip = $('#name-tooltip');
 var starTooltip = $('#star-tooltip');
 var reviewTooltip = $('#review-tooltip');
 
+function initMap(latitude, longitude) {
+  var loc = {lat: latitude, lng: longitude};
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 4,
+    center: loc
+  });
+  var marker = new google.maps.Marker({
+    position: loc,
+    map: map
+  });
+}
+
 $('form').submit(function(e) {
   e.preventDefault();
   var valid = true;
@@ -128,6 +140,7 @@ $(document).ready(function() {
             var foundPage = false;
             $.each(restaurants, function(key, val) {
               if (val.name === restaurantName) {
+                initMap(val.latlng['lat'], val.latlng['lng']);
                 foundPage = true;
                 var infoHtml = "";
                 infoHtml += "<figure>";
@@ -140,7 +153,7 @@ $(document).ready(function() {
                   infoHtml += "<tr><td><strong>" + hours_val + "</strong></td><td>" + val.operating_hours[hours_val].replace(",", "<br>") + "</td></tr>";
                 });
                 infoHtml += "</table></figcaption></figure>";
-                $('.info').html(infoHtml);
+                $('.info').prepend(infoHtml);
                 var revHtml = "";
                 $.each(reviews[restaurantName], function(rev_key, rev_val) {
                   revHtml += "<hr><div class='review'><p><strong>" + rev_val.name + "</strong>";
