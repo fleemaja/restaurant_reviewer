@@ -7,7 +7,7 @@ var reviewTooltip = $('#review-tooltip');
 function initMap(latitude, longitude) {
   var loc = {lat: latitude, lng: longitude};
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 4,
+    zoom: 17,
     center: loc
   });
   var marker = new google.maps.Marker({
