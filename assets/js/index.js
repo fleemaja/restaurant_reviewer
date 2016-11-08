@@ -10,7 +10,7 @@ function initMap(filteredRestaurants) {
   filteredRestaurants.forEach(function(restaurant) {
     var marker = new google.maps.Marker({
       position: {lat: restaurant['latlng']['lat'], lng: restaurant['latlng']['lng']},
-      url: '/show.html?r=' + restaurant.name.replace(/'/g, "%27"),
+      url: window.location.href + 'show.html?r=' + restaurant.name.replace(/'/g, "%27"),
       title: restaurant.name,
       map: map
     });
