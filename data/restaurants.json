@@ -127,22 +127,6 @@
 		"Sunday": "10:00 am - 3:00 pm, 5:30 pm - 11:00 pm"
 	}
 }, {
-	"name": "Ganesh Temple Canteen",
-	"borough": "Queens",
-	"photograph": "ganesh.jpg",
-	"address": "45-57 Bowne St$Flushing, NY 11355",
-	"latlng": {"lat": 40.752809, "lng": -73.816910},
-	"cuisine_type": "Asian",
-	"operating_hours": {
-		"Monday": "8:30 am - 9:30 pm",
-		"Tuesday": "8:30 am - 9:30 pm",
-		"Wednesday": "8:30 am - 9:30 pm",
-		"Thursday": "8:30 am - 9:30 pm",
-		"Friday": "8:30 am - 9:30 pm",
-		"Saturday": "8:30 am - 9:30 pm",
-		"Sunday": "8:30 am - 9:30 pm"
-	}
-}, {
 	"name": "Mu Ramen",
 	"borough": "Queens",
 	"photograph": "mu_ramen.jpg",

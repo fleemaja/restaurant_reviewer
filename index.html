@@ -18,33 +18,48 @@
       </nav>
     </header>
 
-    <div class="filters">
-			<div class="select">
-          <select class="form-control" id="select-cuisine-type">
-            <option selected value="all">All Cuisine Types</option>
-            <option value="Asian">Asian</option>
-            <option value="American">American</option>
-            <option value="Mexican">Mexican</option>
-            <option value="Pizza">Pizza</option>
-          </select>
-	    </div>
+    <div class="container-fluid" id="index-content">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="filters">
+            <div class="select">
+                <select class="form-control" id="select-cuisine-type">
+                  <option selected value="all">All Cuisine Types</option>
+                  <option value="Asian">Asian</option>
+                  <option value="American">American</option>
+                  <option value="Mexican">Mexican</option>
+                  <option value="Pizza">Pizza</option>
+                </select>
+            </div>
 
-      <div class="select">
-          <select class="form-control" id="select-borough">
-            <option selected value="all">All Neighborhoods</option>
-            <option value="Manhattan">Manhattan</option>
-            <option value="Brooklyn">Brooklyn</option>
-            <option value="Queens">Queens</option>
-          </select>
-	    </div>
-    </div>
+            <div class="select">
+                <select class="form-control" id="select-borough">
+                  <option selected value="all">All Neighborhoods</option>
+                  <option value="Manhattan">Manhattan</option>
+                  <option value="Brooklyn">Brooklyn</option>
+                  <option value="Queens">Queens</option>
+                </select>
+            </div>
+          </div>
+        </div>
 
-    <div class="container" id="restaurants">
+        <div class="row">
+          <div id="restaurants"></div>
+        </div>
+
+      </div>
+      <div id="map-container">
+        <div id="nyc-map"></div>
+      </div>
     </div>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
     <script type="text/javascript" src="./dist/js/index.js"></script>
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxqWRIBy6-Kt2rwMUXYSeU9-1HKZBzbsg&callback=initMap">
+    </script>
 
   </body>
 </html>
