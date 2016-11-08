@@ -9,7 +9,9 @@ function initMap(latitude, longitude) {
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 17,
     center: loc,
-    scrollwheel: false
+    draggable: false,
+    scrollwheel: false,
+    panControl: false
   });
   var marker = new google.maps.Marker({
     position: loc,

@@ -31,11 +31,6 @@ body {
     width: 100%;
   }
 
-  .navbar a {
-    text-decoration: none;
-    color: inherit;
-  }
-
   .navbar-fixed-top {
     font-family: 'Futura', 'Helvetica', sans-serif;
     font-size: 32px;
@@ -179,7 +174,7 @@ body {
 
 @media (max-width: 350px) {
   .navbar-fixed-top {
-    font-size: 24px;
+    font-size: 24px !important;
   }
 }
 
