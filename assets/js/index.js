@@ -10,7 +10,12 @@ function initMap(filteredRestaurants) {
   filteredRestaurants.forEach(function(restaurant) {
     var marker = new google.maps.Marker({
       position: {lat: restaurant['latlng']['lat'], lng: restaurant['latlng']['lng']},
+      url: '/show.html?r=' + restaurant.name.replace(/'/g, "%27"),
+      title: restaurant.name,
       map: map
+    });
+    google.maps.event.addListener(marker, 'click', function() {
+        window.location.href = marker.url;
     });
   });
 }
@@ -56,7 +61,7 @@ function fetchRestaurants() {
           total += rev_val.rating;
         });
         var avgRating = Math.round(total/numReviews);
-        html += "<div class='col-md-6'><figure>";
+        html += "<div class='col-md-6' id='" + val.photograph + "'><figure>";
         html += "<img class='img-fluid' src='./assets/images/" + val.photograph + "' alt='" + val.name + "' >";
         html += "<figcaption><a href='./show.html?r=" + val.name.replace(/'/g, "%27") + "'>" + val.name + "</a>";
         html += "<p>" + "<i class='fa fa-star' aria-hidden='true'></i>".repeat(avgRating) + "<i class='fa fa-star-o' aria-hidden='true'></i>".repeat(5 - avgRating) + "</p>";
