@@ -144,9 +144,9 @@ $(document).ready(function() {
                 initMap(val.latlng['lat'], val.latlng['lng']);
                 foundPage = true;
                 var infoHtml = "";
-                infoHtml += "<figure>";
+                infoHtml += "<figure><h1>" + val.name + "</h1>";
                 infoHtml += "<img class='img-fluid' src='./assets/images/" + val.photograph + "' alt='" + val.name + "' >";
-                infoHtml += "<figcaption><p>" + val.name + "</p><p><i class='fa fa-map-marker' aria-hidden='true'></i> " + val.address.split("$")[0] + "</p>";
+                infoHtml += "<figcaption><p><i class='fa fa-map-marker' aria-hidden='true'></i> " + val.address.split("$")[0] + "</p>";
                 infoHtml += "<p><i class='fa fa-map-marker' aria-hidden='true'></i> " + val.address.split("$")[1] + "</p>";
                 infoHtml += "<p><i class='fa fa-cutlery' aria-hidden='true'></i> " + val.cuisine_type + "</p><hr>";
                 infoHtml += "<p><i class='fa fa-clock-o' aria-hidden='true'></i></p><table>";

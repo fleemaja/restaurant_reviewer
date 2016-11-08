@@ -1,7 +1,7 @@
 [{
 	"name": "Mission Chinese Food",
 	"borough": "Manhattan",
-	"photograph": "mission_chinese.jpg",
+	"photograph": "mission_chinese_v2.jpg",
 	"address": "171 E Broadway$New York, NY 10002",
 	"latlng": {"lat": 40.713829, "lng": -73.989667},
 	"cuisine_type": "Asian",
@@ -17,7 +17,7 @@
 }, {
 	"name": "Emily",
 	"borough": "Brooklyn",
-	"photograph": "emily_pizza.jpg",
+	"photograph": "emily_pizza_v2.jpg",
 	"address": "919 Fulton St$Brooklyn, NY 11238",
 	"latlng": {"lat": 40.683555, "lng": -73.966393},
 	"cuisine_type": "Pizza",
@@ -33,7 +33,7 @@
 }, {
 	"name": "Kang Ho Dong Baekjeong",
 	"borough": "Manhattan",
-	"photograph": "kang_ho_dong.jpg",
+	"photograph": "kang_ho_dong_v2.jpg",
 	"address": "1 E 32nd St$New York, NY 10016",
 	"latlng": {"lat": 40.747143, "lng": -73.985414},
 	"cuisine_type": "Asian",
@@ -49,7 +49,7 @@
 }, {
 	"name": "Katz's Delicatessen",
 	"borough": "Manhattan",
-	"photograph": "katz_deli.jpg",
+	"photograph": "katz_deli_v2.jpg",
 	"address": "205 E Houston St$New York, NY 10002",
 	"latlng": {"lat": 40.722216, "lng": -73.987501},
 	"cuisine_type": "American",
@@ -65,7 +65,7 @@
 }, {
 	"name": "Roberta's Pizza",
 	"borough": "Brooklyn",
-	"photograph": "robertas_pizza.jpg",
+	"photograph": "robertas_pizza_v2.jpg",
 	"address": "261 Moore St$Brooklyn, NY 11206",
 	"latlng": {"lat": 40.705089, "lng": -73.933585},
 	"cuisine_type": "Pizza",
@@ -81,7 +81,7 @@
 }, {
 	"name": "Hometown BBQ",
 	"borough": "Brooklyn",
-	"photograph": "hometown_bbq.jpg",
+	"photograph": "hometown_bbq_v2.jpg",
 	"address": "454 Van Brunt St$Brooklyn, NY 11231",
 	"latlng": {"lat": 40.674925, "lng": -74.016162},
 	"cuisine_type": "American",
@@ -97,7 +97,7 @@
 }, {
 	"name": "Superiority Burger",
 	"borough": "Manhattan",
-	"photograph": "superiority_burger.jpg",
+	"photograph": "superiority_burger_v2.jpg",
 	"address": "430 E 9th St$New York, NY 10009",
 	"latlng": {"lat": 40.727397, "lng": -73.983645},
 	"cuisine_type": "American",
@@ -113,7 +113,7 @@
 }, {
 	"name": "The Dutch",
 	"borough": "Manhattan",
-	"photograph": "the_dutch.jpg",
+	"photograph": "the_dutch_v2.jpg",
 	"address": "131 Sullivan St$New York, NY 10012",
 	"latlng": {"lat": 40.726584, "lng": -74.002082},
 	"cuisine_type": "American",
@@ -129,7 +129,7 @@
 }, {
 	"name": "Mu Ramen",
 	"borough": "Queens",
-	"photograph": "mu_ramen.jpg",
+	"photograph": "mu_ramen_v2.jpg",
 	"address": "1209 Jackson Ave$Queens, NY 11101",
 	"latlng": {"lat": 40.743797, "lng": -73.950652},
 	"cuisine_type": "Asian",
@@ -145,7 +145,7 @@
 }, {
 	"name": "Casa Enrique",
 	"borough": "Queens",
-	"photograph": "casa_enrique.jpg",
+	"photograph": "casa_enrique_v2.jpg",
 	"address": "5-48 49th Ave$Queens, NY 11101",
 	"latlng": {"lat": 40.743394, "lng": -73.954235},
 	"cuisine_type": "Mexican",
