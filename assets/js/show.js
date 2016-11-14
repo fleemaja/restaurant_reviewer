@@ -17,6 +17,12 @@ function initMap(latitude, longitude) {
     position: loc,
     map: map
   });
+  // disable google map links tabindex
+  google.maps.event.addListener(map, "tilesloaded", function(){
+    [].slice.apply(document.querySelectorAll('#map a')).forEach(function(item) {
+        item.setAttribute('tabindex','-1');
+    });
+  });
 }
 
 $('form').submit(function(e) {
@@ -54,7 +60,8 @@ function addNewReview() {
   var revHtml = "";
   revHtml += "<hr><div class='review'><p><strong>" + name + "</strong>";
   revHtml += "<span class='review-date'>" + date + "</span></p>";
-  revHtml += "<p>" + "<i class='fa fa-star' aria-hidden='true'></i>".repeat(rating) + "<i class='fa fa-star-o' aria-hidden='true'></i>".repeat(5 - rating) + "</p>";
+  revHtml += "<p>" + "<i class='fa fa-star' aria-hidden='true'></i>".repeat(rating) + "<i class='fa fa-star-o' aria-hidden='true'></i>".repeat(5 - rating);
+  revHtml += "<span class='sr-only'>Rating: " + rating + " out of 5 stars</span></p>";
   revHtml += "<p>" + review + "</p></div>";
   $('.reviews').prepend(revHtml);
 
@@ -147,11 +154,11 @@ $(document).ready(function() {
                 foundPage = true;
                 var infoHtml = "";
                 infoHtml += "<figure><h1>" + val.name + "</h1>";
-                infoHtml += "<img class='img-fluid' src='./assets/images/" + val.photograph + "' alt='" + val.name + "' >";
-                infoHtml += "<figcaption><p><i class='fa fa-map-marker' aria-hidden='true'></i> " + val.address.split("$")[0] + "</p>";
-                infoHtml += "<p><i class='fa fa-map-marker' aria-hidden='true'></i> " + val.address.split("$")[1] + "</p>";
-                infoHtml += "<p><i class='fa fa-cutlery' aria-hidden='true'></i> " + val.cuisine_type + "</p><hr>";
-                infoHtml += "<p><i class='fa fa-clock-o' aria-hidden='true'></i></p><table>";
+                infoHtml += "<img class='img-fluid' src='./assets/images/" + val.photograph + "' alt='' >";
+                infoHtml += "<figcaption><p><i class='fa fa-map-marker' aria-hidden='true' title='Address'></i><span class='sr-only'>Address:</span> " + val.address.split("$")[0] + "</p>";
+                infoHtml += "<p><i class='fa fa-map-marker' aria-hidden='true' title='Address'></i> " + val.address.split("$")[1] + "</p>";
+                infoHtml += "<p><i class='fa fa-cutlery' aria-hidden='true' title='Cuisine Type'></i><span class='sr-only'>Cuisine Type:</span> " + val.cuisine_type + "</p><hr>";
+                infoHtml += "<p><i class='fa fa-clock-o' aria-hidden='true' title='Business Hours'></i><span class='sr-only'>Business Hours:</span></p><table>";
                 $.each(Object.keys(val.operating_hours), function(hours_key, hours_val) {
                   infoHtml += "<tr><td><strong>" + hours_val + "</strong></td><td>" + val.operating_hours[hours_val].replace(",", "<br>") + "</td></tr>";
                 });
@@ -161,7 +168,8 @@ $(document).ready(function() {
                 $.each(reviews[restaurantName], function(rev_key, rev_val) {
                   revHtml += "<hr><div class='review'><p><strong>" + rev_val.name + "</strong>";
                   revHtml += "<span class='review-date'>" + rev_val.date + "</span></p>";
-                  revHtml += "<p>" + "<i class='fa fa-star' aria-hidden='true'></i>".repeat(rev_val.rating) + "<i class='fa fa-star-o' aria-hidden='true'></i>".repeat(5 - rev_val.rating) + "</p>";
+                  revHtml += "<p>" + "<i class='fa fa-star' aria-hidden='true'></i>".repeat(rev_val.rating) + "<i class='fa fa-star-o' aria-hidden='true'></i>".repeat(5 - rev_val.rating);
+                  revHtml += "<span class='sr-only'>Rating: " + rev_val.rating + " out of 5 stars</span></p>";
                   revHtml += "<p>" + rev_val.comments + "</p></div>";
                 });
                 $('.reviews').html(revHtml);
