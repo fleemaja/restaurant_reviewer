@@ -67,15 +67,15 @@ function fetchRestaurants() {
           total += rev_val.rating;
         });
         var avgRating = Math.round(total/numReviews);
-        html += "<div class='col-md-6'><figure>";
+        html += "<div class='col-md-6'><article class='restaurant'>";
         html += "<img class='img-fluid' src='./assets/images/" + val.photograph + "' alt='' >";
-        html += "<figcaption><a href='./show.html?r=" + val.name.replace(/'/g, "%27") + "'>" + val.name + "</a>";
+        html += "<div class='restaurant-info'><h1><a href='./show.html?r=" + val.name.replace(/'/g, "%27") + "'>" + val.name + "</a></h1>";
         html += "<p>" + "<i class='fa fa-star' aria-hidden='true'></i>".repeat(avgRating) + "<i class='fa fa-star-o' aria-hidden='true'></i>".repeat(5 - avgRating);
         html += "<span class='sr-only'>Rating: " + avgRating + " out of 5 stars</span></p>";
         html += "<p><i class='fa fa-map-marker' aria-hidden='true' title='Address'></i><span class='sr-only'>Address:</span> " + val.address.split("$")[0] + "</p>";
         html += "<p><i class='fa fa-map-marker' aria-hidden='true' title='Address'></i> " + val.address.split("$")[1] + "</p>";
         html += "<p><i class='fa fa-cutlery' aria-hidden='true' title='Cuisine Type'></i><span class='sr-only'>Cuisine Type:</span> " + val.cuisine_type + "</p>";
-        html += "</figcaption></figure></div>";
+        html += "</div></article></div>";
       }
     }
   });

@@ -58,11 +58,11 @@ function addNewReview() {
   var review = $('#review-input').val();
 
   var revHtml = "";
-  revHtml += "<hr><div class='review'><p><strong>" + name + "</strong>";
+  revHtml += "<hr><article class='review'><p><strong>" + name + "</strong>";
   revHtml += "<span class='review-date'>" + date + "</span></p>";
   revHtml += "<p>" + "<i class='fa fa-star' aria-hidden='true'></i>".repeat(rating) + "<i class='fa fa-star-o' aria-hidden='true'></i>".repeat(5 - rating);
   revHtml += "<span class='sr-only'>Rating: " + rating + " out of 5 stars</span></p>";
-  revHtml += "<p>" + review + "</p></div>";
+  revHtml += "<p>" + review + "</p></article>";
   $('.reviews').prepend(revHtml);
 
   $('html, body').stop(true,true).animate({
@@ -133,13 +133,14 @@ function isReviewValid() {
 }
 
 $('#stars').on('keydown', function(e) {
+  // gets current star value
   var starIndex = 0;
   $('#stars > i').each(function () {
       if ($(this).attr('aria-checked') == 'true') {
         starIndex = parseInt($(this).attr('id').split("-")[1]);
       }
   });
-
+  // allows keyboard users to select stars with the arrow keys
   if (e.which == 39) {
     if (starIndex < 5) {
       starIndex += 1;
@@ -174,24 +175,24 @@ $(document).ready(function() {
                 initMap(val.latlng['lat'], val.latlng['lng']);
                 foundPage = true;
                 var infoHtml = "";
-                infoHtml += "<figure><h1>" + val.name + "</h1>";
+                infoHtml += "<article class='restaurant'><h1>" + val.name + "</h1>";
                 infoHtml += "<img class='img-fluid' src='./assets/images/" + val.photograph + "' alt='' >";
-                infoHtml += "<figcaption><p><i class='fa fa-map-marker' aria-hidden='true' title='Address'></i><span class='sr-only'>Address:</span> " + val.address.split("$")[0] + "</p>";
+                infoHtml += "<div class='restaurant-info'><p><i class='fa fa-map-marker' aria-hidden='true' title='Address'></i><span class='sr-only'>Address:</span> " + val.address.split("$")[0] + "</p>";
                 infoHtml += "<p><i class='fa fa-map-marker' aria-hidden='true' title='Address'></i> " + val.address.split("$")[1] + "</p>";
                 infoHtml += "<p><i class='fa fa-cutlery' aria-hidden='true' title='Cuisine Type'></i><span class='sr-only'>Cuisine Type:</span> " + val.cuisine_type + "</p><hr>";
                 infoHtml += "<p><i class='fa fa-clock-o' aria-hidden='true' title='Business Hours'></i><span class='sr-only'>Business Hours:</span></p><table>";
                 $.each(Object.keys(val.operating_hours), function(hours_key, hours_val) {
                   infoHtml += "<tr><td><strong>" + hours_val + "</strong></td><td>" + val.operating_hours[hours_val].replace(",", "<br>") + "</td></tr>";
                 });
-                infoHtml += "</table></figcaption></figure>";
+                infoHtml += "</table></div></article>";
                 $('.info').prepend(infoHtml);
                 var revHtml = "";
                 $.each(reviews[restaurantName], function(rev_key, rev_val) {
-                  revHtml += "<hr><div class='review'><p><strong>" + rev_val.name + "</strong>";
+                  revHtml += "<hr><article class='review'><p><strong>" + rev_val.name + "</strong>";
                   revHtml += "<span class='review-date'>" + rev_val.date + "</span></p>";
                   revHtml += "<p>" + "<i class='fa fa-star' aria-hidden='true'></i>".repeat(rev_val.rating) + "<i class='fa fa-star-o' aria-hidden='true'></i>".repeat(5 - rev_val.rating);
                   revHtml += "<span class='sr-only'>Rating: " + rev_val.rating + " out of 5 stars</span></p>";
-                  revHtml += "<p>" + rev_val.comments + "</p></div>";
+                  revHtml += "<p>" + rev_val.comments + "</p></article>";
                 });
                 $('.reviews').html(revHtml);
                 document.title = restaurantName;

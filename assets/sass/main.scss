@@ -67,7 +67,7 @@ body {
     }
   }
 
-  figure {
+  .restaurant {
     margin: 0 auto;
     margin-bottom: 40px;
     max-width: 800px;
@@ -83,10 +83,14 @@ body {
       height: auto;
     }
 
-    figcaption {
+    .restaurant-info {
       font-size: 18px;
       margin-top: 10px;
       text-align: left;
+
+      h1 {
+        font-size: 24px;
+      }
     }
   }
 
@@ -177,6 +181,13 @@ body {
 @media (max-width: 350px) {
   .navbar-fixed-top {
     font-size: 24px !important;
+  }
+}
+
+@media (max-width: 379px) {
+  .select {
+    width: 80% !important;
+    margin-bottom: 5px !important;
   }
 }
 
