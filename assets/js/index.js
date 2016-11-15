@@ -52,6 +52,14 @@ $(document).ready(function() {
   });
 });
 
+function multiplyString(str, numTimes) {
+  var multipliedStr = "";
+  for (var i = 1; i <= numTimes; i++) {
+    multipliedStr += str;
+  }
+  return multipliedStr;
+}
+
 function fetchRestaurants() {
   var cuisineType = $('#select-cuisine-type').val();
   var borough = $('#select-borough').val();
@@ -70,7 +78,7 @@ function fetchRestaurants() {
         html += "<div class='col-md-6'><article class='restaurant'>";
         html += "<img class='img-fluid' src='./assets/images/" + val.photograph + "' alt='' >";
         html += "<div class='restaurant-info'><h1><a href='./show.html?r=" + val.name.replace(/'/g, "%27") + "'>" + val.name + "</a></h1>";
-        html += "<p>" + "<i class='fa fa-star' aria-hidden='true'></i>".repeat(avgRating) + "<i class='fa fa-star-o' aria-hidden='true'></i>".repeat(5 - avgRating);
+        html += "<p>" + multiplyString("<i class='fa fa-star' aria-hidden='true'></i>", avgRating) + multiplyString("<i class='fa fa-star-o' aria-hidden='true'></i>", 5 - avgRating);
         html += "<span class='sr-only'>Rating: " + avgRating + " out of 5 stars</span></p>";
         html += "<p><i class='fa fa-map-marker' aria-hidden='true' title='Address'></i><span class='sr-only'>Address:</span> " + val.address.split("$")[0] + "</p>";
         html += "<p><i class='fa fa-map-marker' aria-hidden='true' title='Address'></i> " + val.address.split("$")[1] + "</p>";

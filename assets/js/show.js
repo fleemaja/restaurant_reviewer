@@ -11,7 +11,8 @@ function initMap(latitude, longitude) {
     center: loc,
     draggable: false,
     scrollwheel: false,
-    panControl: false
+    panControl: false,
+    disableDefaultUI: true
   });
   var marker = new google.maps.Marker({
     position: loc,
@@ -23,6 +24,14 @@ function initMap(latitude, longitude) {
         item.setAttribute('tabindex','-1');
     });
   });
+}
+
+function multiplyString(str, numTimes) {
+  var multipliedStr = "";
+  for (var i = 1; i <= numTimes; i++) {
+    multipliedStr += str;
+  }
+  return multipliedStr;
 }
 
 $('form').submit(function(e) {
@@ -60,7 +69,7 @@ function addNewReview() {
   var revHtml = "";
   revHtml += "<hr><article class='review'><p><strong>" + name + "</strong>";
   revHtml += "<span class='review-date'>" + date + "</span></p>";
-  revHtml += "<p>" + "<i class='fa fa-star' aria-hidden='true'></i>".repeat(rating) + "<i class='fa fa-star-o' aria-hidden='true'></i>".repeat(5 - rating);
+  revHtml += "<p>" + multiplyString("<i class='fa fa-star' aria-hidden='true'></i>", rating) + multiplyString("<i class='fa fa-star-o' aria-hidden='true'></i>", 5 - rating);
   revHtml += "<span class='sr-only'>Rating: " + rating + " out of 5 stars</span></p>";
   revHtml += "<p>" + review + "</p></article>";
   $('.reviews').prepend(revHtml);
@@ -190,7 +199,7 @@ $(document).ready(function() {
                 $.each(reviews[restaurantName], function(rev_key, rev_val) {
                   revHtml += "<hr><article class='review'><p><strong>" + rev_val.name + "</strong>";
                   revHtml += "<span class='review-date'>" + rev_val.date + "</span></p>";
-                  revHtml += "<p>" + "<i class='fa fa-star' aria-hidden='true'></i>".repeat(rev_val.rating) + "<i class='fa fa-star-o' aria-hidden='true'></i>".repeat(5 - rev_val.rating);
+                  revHtml += "<p>" + multiplyString("<i class='fa fa-star' aria-hidden='true'></i>", rev_val.rating) + multiplyString("<i class='fa fa-star-o' aria-hidden='true'></i>", 5 - rev_val.rating);
                   revHtml += "<span class='sr-only'>Rating: " + rev_val.rating + " out of 5 stars</span></p>";
                   revHtml += "<p>" + rev_val.comments + "</p></article>";
                 });
