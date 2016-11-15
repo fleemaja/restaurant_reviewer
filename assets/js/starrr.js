@@ -32,17 +32,6 @@ var __slice = [].slice;
           this.$el.on('mouseout.starrr', function() {
             return _this.syncRating();
           });
-          this.$el.on('focusin.starrr', 'i', function(e) {
-            return _this.syncRating(_this.$el.find('i').index(e.currentTarget) + 1);
-          });
-          this.$el.on('focusout.starrr', function() {
-            return _this.syncRating();
-          });
-          this.$el.on('keydown.starrr', 'i', function(e) {
-            if (e.which == 13) {
-              return _this.setRating(_this.$el.find('i').index(e.currentTarget) + 1);
-            }
-          });
           this.$el.on('click.starrr', 'i', function(e) {
             return _this.setRating(_this.$el.find('i').index(e.currentTarget) + 1);
           });
@@ -55,7 +44,7 @@ var __slice = [].slice;
         _results = [];
         for (_i = 1, _ref = this.options.numStars; 1 <= _ref ? _i <= _ref : _i >= _ref; 1 <= _ref ? _i++ : _i--) {
           _stars = _i > 1 ? _i + " Stars" : _i + " Star";
-          _starInfo = "<i class='fa fa-star-o' aria-hidden='true' id='" + _i + "' role='radio' aria-checked='false' tabindex='0' title='" + _stars + "'>";
+          _starInfo = "<i class='fa fa-star-o' aria-hidden='true' id='star-" + _i + "' role='radio' aria-checked='false' title='" + _stars + "'>";
           _starInfo += "<span class='sr-only'>" + _stars + "</span></i>";
         _results.push(this.$el.append(_starInfo));
         }
@@ -64,9 +53,6 @@ var __slice = [].slice;
 
       Starrr.prototype.setRating = function(rating) {
           var _i, _ref;
-          if (this.options.rating === rating) {
-              rating = void 0;
-          }
           this.options.rating = rating;
           this.syncRating();
           for (_i = 1, _ref = this.options.numStars; 1 <= _ref ? _i <= _ref : _i >= _ref; 1 <= _ref ? _i++ : _i--) {

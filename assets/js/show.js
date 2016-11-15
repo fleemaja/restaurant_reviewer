@@ -132,6 +132,27 @@ function isReviewValid() {
   return review === "" ? false : true;
 }
 
+$('#stars').on('keydown', function(e) {
+  var starIndex = 0;
+  $('#stars > i').each(function () {
+      if ($(this).attr('aria-checked') == 'true') {
+        starIndex = parseInt($(this).attr('id').split("-")[1]);
+      }
+  });
+
+  if (e.which == 39) {
+    if (starIndex < 5) {
+      starIndex += 1;
+      $('#star-' + starIndex).click();
+    }
+  } else if (e.which == 37) {
+    if (starIndex > 0) {
+      starIndex -= 1;
+      $('#star-' + starIndex).click();
+    }
+  }
+});
+
 $(document).ready(function() {
     $.ajax({
       url: "https://fleemaja.github.io/restaurant_reviewer/data/restaurants.json",

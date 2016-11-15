@@ -26,15 +26,15 @@
         <form>
             <div class="form-group">
                 <input type="text" id="name-input" class="form-control" name="name" aria-label="Your Name" autocomplete="name" placeholder="Your Name">
-                <div class="tooltip" id="name-tooltip"><span class="dot">!</span>Name is required</div>
+                <div class="tooltip" id="name-tooltip"><span class="dot">!</span>Name is required to add review</div>
             </div>
             <div class="form-group" id="star-group">
-              <div id="stars" class="starrr" role="radiogroup" aria-label="Select a star rating (out of 5) with the enter key"></div>
-              <div class="tooltip" id="star-tooltip"><span class="dot">!</span>Star Rating is required</div>
+              <div id="stars" class="starrr" role="radiogroup" tabindex="0" aria-label="Select a star rating (out of 5) with the arrow keys"></div>
+              <div class="tooltip" id="star-tooltip"><span class="dot">!</span>Star Rating is required to add review</div>
             </div>
             <div class="form-group">
                 <textarea rows="4" class="form-control" id="review-input" placeholder="Your Review" aria-label="Your Review" name="review"></textarea>
-                <div class="tooltip" id="review-tooltip"><span class="dot">!</span>Review is required</div>
+                <div class="tooltip" id="review-tooltip"><span class="dot">!</span>Comments are required to add review</div>
             </div>
             <button type="submit" id="review-submit" class="btn btn-lg">Add Review</button>
         </form>
