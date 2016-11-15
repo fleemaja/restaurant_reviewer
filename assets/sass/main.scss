@@ -107,7 +107,12 @@ body {
     text-align: left;
 
     #stars {
+      display: inline;
       font-size: 48px;
+
+      .star {
+        display: inline;
+      }
     }
 
     .btn {
@@ -162,10 +167,11 @@ body {
         margin-left: -11px;
       }
 
-      .fa {
+      .dot {
         color: white;
-        background: #006275;
-        padding: 2px 7px;
+        font-weight: 900;
+        background: #a94442;
+        padding: 0px 7px;
         margin-right: 5px;
       }
     }
