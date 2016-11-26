@@ -1,5 +1,19 @@
 var restaurants; var reviews;
 
+var titleToPhoto = {
+  "Mission Chinese Food": "mission_chinese_v2",
+  "Emily": "emily_pizza_v2",
+  "Kang Ho Dong Baekjeong": "kang_ho_dong_v2",
+  "Katz's Delicatessen": "katz_deli_v2",
+  "Roberta's Pizza": "robertas_pizza_v2",
+  "Hometown BBQ": "hometown_bbq_v2",
+  "Superiority Burger": "superiority_burger_v2",
+  "The Dutch": "the_dutch_v2",
+  "Mu Ramen": "mu_ramen_v2",
+  "Casa Enrique": "casa_enrique_v2"
+};
+var mapMarkers = [];
+
 function initMap(filteredRestaurants) {
   var loc = {lat: 40.722216, lng: -73.987501};
   var map = new google.maps.Map(document.getElementById('nyc-map'), {
@@ -12,8 +26,10 @@ function initMap(filteredRestaurants) {
       position: {lat: restaurant['latlng']['lat'], lng: restaurant['latlng']['lng']},
       url: window.location.href + 'show.html?r=' + restaurant.name.replace(/'/g, "%27"),
       title: restaurant.name,
+      animation: google.maps.Animation.DROP,
       map: map
     });
+    mapMarkers.push(marker);
     google.maps.event.addListener(marker, 'click', function() {
         window.location.href = marker.url;
     });
@@ -75,7 +91,7 @@ function fetchRestaurants() {
           total += rev_val.rating;
         });
         var avgRating = Math.round(total/numReviews);
-        html += "<div class='col-md-6'><article class='restaurant'>";
+        html += "<div class='col-md-6'><article class='restaurant' id='" + val.photograph.slice(0, -4) + "'>";
         html += "<img class='img-fluid' src='./assets/images/" + val.photograph + "' alt='' >";
         html += "<div class='restaurant-info'><h1><a href='./show.html?r=" + val.name.replace(/'/g, "%27") + "'>" + val.name + "</a></h1>";
         html += "<p>" + multiplyString("<i class='fa fa-star' aria-hidden='true'></i>", avgRating) + multiplyString("<i class='fa fa-star-o' aria-hidden='true'></i>", 5 - avgRating);
@@ -92,4 +108,16 @@ function fetchRestaurants() {
   }
   $('#restaurants').html(html);
   initMap(filteredRestaurants);
+  initMapEvents();
+}
+
+function initMapEvents() {
+  mapMarkers.forEach(function(marker) {
+    $('#' + titleToPhoto[marker.title]).mouseenter(function() {
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+    });
+    $('#' + titleToPhoto[marker.title]).mouseleave(function() {
+        marker.setAnimation(null);
+    });
+  });
 }
