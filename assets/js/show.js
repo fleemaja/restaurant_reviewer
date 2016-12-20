@@ -19,9 +19,15 @@ function initMap(latitude, longitude) {
     map: map
   });
   // disable google map links tabindex
-  google.maps.event.addListener(map, "tilesloaded", function(){
+  google.maps.event.addListener(map, "tilesloaded", function(evt){
     [].slice.apply(document.querySelectorAll('#map a')).forEach(function(item) {
         item.setAttribute('tabindex','-1');
+    });
+
+    $(this.getDiv()).find("img").each(function(i, eimg){
+      if(!eimg.alt || eimg.alt ===""){
+         eimg.alt = "Google Maps Image";
+      }
     });
   });
 }
@@ -40,17 +46,17 @@ $('form').submit(function(e) {
 
   if (!isStarValid()) {
     valid = false;
-    starTooltip.css('opacity', 1);
+    starTooltip.css('visibility', 'visible');
   }
 
   if (!isNameValid()) {
     valid = false;
-    nameTooltip.css('opacity', 1);
+    nameTooltip.css('visibility', 'visible');
   }
 
   if (!isReviewValid()) {
     valid = false;
-    reviewTooltip.css('opacity', 1);
+    reviewTooltip.css('visibility', 'visible');
   }
 
   if (valid) {
@@ -108,17 +114,17 @@ function isStarValid() {
 
 $('#stars').on('starrr:change', function(e, value){
   $('#stars').val(value);
-  starTooltip.css('opacity', 0);
+  starTooltip.css('visibility', 'hidden');
 });
 
 $('#name-input').focusout(function() {
   if (!isNameValid()) {
-    nameTooltip.css('opacity', 1);
+    nameTooltip.css('visibility', 'visible');
   }
 });
 
 $('#name-input').focusin(function() {
-  nameTooltip.css('opacity', 0);
+  nameTooltip.css('visibility', 'hidden');
 });
 
 function isNameValid() {
@@ -128,12 +134,12 @@ function isNameValid() {
 
 $('#review-input').focusout(function() {
   if (!isReviewValid()) {
-    reviewTooltip.css('opacity', 1);
+    reviewTooltip.css('visibility', 'visible');
   }
 });
 
 $('#review-input').focusin(function() {
-  reviewTooltip.css('opacity', 0);
+  reviewTooltip.css('visibility', 'hidden');
 });
 
 function isReviewValid() {
@@ -185,7 +191,7 @@ $(document).ready(function() {
                 foundPage = true;
                 var infoHtml = "";
                 infoHtml += "<article class='restaurant'><h1>" + val.name + "</h1>";
-                infoHtml += "<img class='img-fluid' src='./assets/images/" + val.photograph + "' alt='' >";
+                infoHtml += "<img class='img-fluid' src='./assets/images/" + val.photograph + "' alt='" + val.name + "' >";
                 infoHtml += "<div class='restaurant-info'><p><i class='fa fa-map-marker' aria-hidden='true' title='Address'></i><span class='sr-only'>Address:</span> " + val.address.split("$")[0] + "</p>";
                 infoHtml += "<p><i class='fa fa-map-marker' aria-hidden='true' title='Address'></i> " + val.address.split("$")[1] + "</p>";
                 infoHtml += "<p><i class='fa fa-cutlery' aria-hidden='true' title='Cuisine Type'></i><span class='sr-only'>Cuisine Type:</span> " + val.cuisine_type + "</p><hr>";

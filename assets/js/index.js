@@ -92,7 +92,7 @@ function fetchRestaurants() {
         });
         var avgRating = Math.round(total/numReviews);
         html += "<div class='col-md-6'><article class='restaurant' id='" + val.photograph.slice(0, -4) + "'>";
-        html += "<img class='img-fluid' src='./assets/images/" + val.photograph + "' alt='' >";
+        html += "<img class='img-fluid' src='./assets/images/" + val.photograph + "' alt='" + val.name + "' >";
         html += "<div class='restaurant-info'><h1><a href='./show.html?r=" + val.name.replace(/'/g, "%27") + "'>" + val.name + "</a></h1>";
         html += "<p>" + multiplyString("<i class='fa fa-star' aria-hidden='true'></i>", avgRating) + multiplyString("<i class='fa fa-star-o' aria-hidden='true'></i>", 5 - avgRating);
         html += "<span class='sr-only'>Rating: " + avgRating + " out of 5 stars</span></p>";

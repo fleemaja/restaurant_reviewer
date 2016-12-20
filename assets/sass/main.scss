@@ -130,7 +130,8 @@ body {
     }
 
     div.tooltip {
-      opacity: 0;
+      visibility: hidden;
+      opacity: 1;
       position: absolute;
       text-align: center;
       margin-left: 20px;
@@ -178,6 +179,10 @@ body {
       }
     }
   }
+}
+
+.gm-style-pbt {
+  display: none;
 }
 
 @media (max-width: 350px) {
